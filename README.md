@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Checkbox List Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and customizable React component that displays a list of checkboxes with a clean, modern UI. The component features custom styled checkboxes with visually appealing active states.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Custom-designed checkbox UI with blue active state
+- "Select All" functionality with the "All pages" option
+- Automatic syncing of "All pages" checkbox state based on individual selections
+- Mobile-friendly design
+- Customizable styling
+- Clean visual separation with border lines
 
-### `npm start`
+## Screenshot
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![image](https://github.com/user-attachments/assets/89e94543-ca3d-436e-9670-29be9abe1613)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repository or copy the component files into your React project:
+   - `CheckboxList.js`
+   - `CheckboxList.css`
 
-### `npm run build`
+2. Import and use the component in your React application.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```jsx
+import React from 'react';
+import CheckboxList from './path/to/CheckboxList';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+function App() {
+  return (
+    <div className="App">
+      <CheckboxList />
+    </div>
+  );
+}
 
-### `npm run eject`
+export default App;
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Component Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The component consists of:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- A main container with a list of checkbox items
+- Each checkbox item contains a label and a custom-styled checkbox
+- A "Done" button to submit or process selections
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Customization
 
-## Learn More
+### Styling
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can customize the appearance by modifying the `CheckboxList.css` file:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Change the color scheme by updating the checkbox active color (`#4285f4`)
+- Modify button color (`#ffd500`)
+- Adjust border styles, spacing, or font sizes
 
-### Code Splitting
+### Component Props
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+You can extend the component to accept props such as:
 
-### Analyzing the Bundle Size
+```jsx
+<CheckboxList 
+  items={['Page 1', 'Page 2', 'Page 3']} 
+  onSelectionChange={(selections) => console.log(selections)}
+  onDone={(selections) => processSelections(selections)}
+/>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## How It Works
 
-### Making a Progressive Web App
+The component uses React's `useState` and `useEffect` hooks to manage state:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Checkbox state is tracked in a state object
+- When "All pages" is selected/deselected, all checkboxes update accordingly
+- When all individual checkboxes are selected, "All pages" automatically checks
+- Click handlers ensure the checkbox state toggles correctly when clicking anywhere on the row
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to submit issues or enhancement requests!
