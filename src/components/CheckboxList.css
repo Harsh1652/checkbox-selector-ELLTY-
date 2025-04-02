@@ -1,0 +1,119 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+  }
+  
+  .selection-modal {
+    width: 320px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+  
+  .selection-list {
+    margin-bottom: 20px;
+  }
+  
+  .selection-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: white;
+    cursor: pointer;
+    border-bottom: none;
+  }
+  
+  /* Remove bottom margin since we're using borders now */
+  .selection-item {
+    margin-bottom: 0;
+  }
+  
+  /* Special styling for the first item ("All Pages") */
+  .selection-item.all-pages {
+    border-bottom: 1px solid #ddd; /* Darker border for All Pages */
+  }
+  
+  /* Special styling for the last item */
+  .selection-item:last-child {
+    border-bottom: 1px solid #ddd; /* Darker border for the last item */
+  }
+  
+  .selection-item label {
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Custom checkbox styling */
+  .checkbox-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  
+  input[type="checkbox"]:checked ~ .checkmark {
+    background-color: #4285f4; /* Google blue color */
+    border: none;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  input[type="checkbox"]:checked ~ .checkmark:after {
+    display: block;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .done-button {
+    background-color: #ffd500;
+    color: #000;
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 16px;
+  }
+  
+  .done-button:hover {
+    background-color: #f0c800;
+  }
